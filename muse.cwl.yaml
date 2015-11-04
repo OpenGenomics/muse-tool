@@ -1,0 +1,34 @@
+class: CommandLineTool
+label: MuSE
+baseCommand: [/opt/bin/muse.py, -O, muse.vcf, -w, ./, --muse, MuSEv1.0rc]
+requirements:
+requirements:
+  - class: "DockerRequirement"
+    dockerImageId: "351c6858a534"
+    dockerPull: "sinisa/muse:v2"
+inputs:
+  - id: "#tumor"
+    type: File
+    inputBinding:
+      prefix: --tumor-bam
+  - id: "#normal"
+    type: File
+    inputBinding:
+      prefix: --normal-bam
+  - id: "#reference"
+    type: File
+    inputBinding:
+      prefix: -f
+  - id: "#known"
+    type: File
+    inputBinding:
+      prefix: -D
+  - id: "#mode"
+    type: {"type": "enum", "name": "Mode", "symbols": ["wgs", "wxs"]}
+    inputBinding:
+      prefix: --mode
+outputs:
+  - id: "#mutations"
+    type: File
+    outputBinding:
+      glob: muse.vcf
