@@ -2,7 +2,6 @@ class: CommandLineTool
 label: MuSE
 baseCommand: [/opt/bin/muse.py, -O, muse.vcf, -w, ./, --muse, MuSEv1.0rc]
 requirements:
-requirements:
   - class: "DockerRequirement"
     dockerImageId: "351c6858a534"
     dockerPull: "sinisa/muse:v2"
