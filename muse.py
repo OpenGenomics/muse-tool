@@ -48,7 +48,7 @@ def call_cmd_iter(muse, ref_seq, block_size, tumor_bam, normal_bam, contaminatio
     contamination_str = ""
     if contamination is not None:
         contamination_str = "-p %s" % (contamination)
-    template = string.Template("${MUSE} call -f ${REF_SEQ} ${CONTAMINATION} -r ${INTERVAL} ${TUMOR_BAM} ${NORMAL_BAM} -O ${OUTPUT_BASE}.${BLOCK_NUM}")
+    template = string.Template("${MUSE} call -f ${REF_SEQ} ${CONTAMINATION} -r '${INTERVAL}' ${TUMOR_BAM} ${NORMAL_BAM} -O ${OUTPUT_BASE}.${BLOCK_NUM}")
     for i, block in enumerate(fai_chunk( ref_seq + ".fai", block_size ) ):
             cmd = template.substitute(
                 dict(
