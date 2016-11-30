@@ -1,0 +1,36 @@
+class: CommandLineTool
+label: MuSE
+baseCommand: [/opt/bin/muse.py, -O, muse.vcf, -w, ./, --muse, MuSEv1.0rc]
+requirements:
+  - class: "DockerRequirement"
+    dockerImageId: "opengenomics/muse:c039ffa"
+inputs:
+  - id: "#tumor"
+    type: File
+    inputBinding:
+      prefix: --tumor-bam
+      secondaryFiles:
+        - .bai
+  - id: "#normal"
+    type: File
+    inputBinding:
+      prefix: --normal-bam
+      secondaryFiles:
+        - .bai
+  - id: "#reference"
+    type: File
+    inputBinding:
+      prefix: -f
+  - id: "#known"
+    type: File
+    inputBinding:
+      prefix: -D
+  - id: "#mode"
+    type: {"type": "enum", "name": "Mode", "symbols": ["wgs", "wxs"]}
+    inputBinding:
+      prefix: --mode
+outputs:
+  - id: "#mutations"
+    type: File
+    outputBinding:
+      glob: muse.vcf
