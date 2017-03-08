@@ -135,11 +135,11 @@ def run_muse(args):
 
     dbsnp_file = None
     if args.D:
-        new_dbsnp = os.path.join(workdir, "db_snp.vcf")
+        new_dbsnp = os.path.join(workdir, "db_snp.vcf.gz")
         os.symlink(args.D,new_dbsnp)
-        subprocess.check_call( ["/usr/bin/bgzip", new_dbsnp] )
-        subprocess.check_call( ["/usr/bin/tabix", "-p", "vcf", new_dbsnp + ".gz" ])
-        dbsnp_file = new_dbsnp + ".gz"
+        #subprocess.check_call( ["/usr/bin/bgzip", new_dbsnp] )
+        subprocess.check_call( ["/usr/bin/tabix", "-p", "vcf", new_dbsnp ])
+        dbsnp_file = new_dbsnp
         sump_template = string.Template("${MUSE} sump -I ${MERGE} -O ${OUTPUT} -D ${DBSNP} ${MODE}")
     else:
         sump_template = string.Template("${MUSE} sump -I ${MERGE} -O ${OUTPUT} ${MODE}")
