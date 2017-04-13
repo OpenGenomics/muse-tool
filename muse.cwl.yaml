@@ -4,7 +4,7 @@ cwlVersion: v1.0
 baseCommand: [/opt/bin/muse.py, -O, muse.vcf, -w, ./, --muse, MuSEv1.0rc]
 requirements:
   - class: "DockerRequirement"
-    dockerImageId: "opengenomics/muse:latest"
+    dockerPull: "opengenomics/muse:latest"
 inputs:
   tumor:
     type: File
