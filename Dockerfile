@@ -9,5 +9,6 @@ RUN     wget -O /opt/bin/MuSEv1.0rc http://bioinformatics.mdanderson.org/Softwar
 RUN     chmod +x /opt/bin/MuSE*
 ADD     ./muse.py /opt/bin/
 ADD     ./vcf_reformat.py /opt/bin/vcf_reformat.py
-
+ADD     hgsc_vcf /opt/bin/hgsc_vcf
+ADD     filter_muse.py /opt/bin/filter_muse.py
 ENV     PATH /usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/bin
