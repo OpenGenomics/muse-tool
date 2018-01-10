@@ -30,6 +30,11 @@ inputs:
     type: {"type": "enum", "name": "Mode", "symbols": ["wgs", "wxs"]}
     inputBinding:
       prefix: --mode
+  ncpus:
+    type: int
+    default: 8
+    inputBinding:
+      prefix: "--cpus"
 outputs:
   mutations:
     type: File
