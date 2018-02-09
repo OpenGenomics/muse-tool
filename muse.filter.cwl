@@ -5,7 +5,7 @@ label: Filter MuSE
 
 requirements:
   - class: DockerRequirement
-    dockerImageId: opengenomics/muse
+    dockerPull: opengenomics/muse:latest
 
 baseCommand: [python, /opt/bin/filter_muse.py, --level, '5']
 
