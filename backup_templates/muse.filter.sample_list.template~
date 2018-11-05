@@ -1,0 +1,4 @@
+run_uid:	vcf:
+sample_1	/full/path/to/muse_1.vcf
+sample_2	/full/path/to/muse_2.vcf
+sample_3	/full/path/to/muse_3.vcf
