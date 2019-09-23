@@ -23,7 +23,7 @@ inputs:
     inputBinding:
       prefix: -f
   known:
-    type: File
+    type: File?
     inputBinding:
       prefix: -D
   mode:
